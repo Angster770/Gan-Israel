@@ -1,0 +1,28 @@
+<% layout ('/layouts/boilerplate') %>
+    <h1 class="pt-5">All Gan Israels!</h1>
+    <div>
+        <a href="/ganisraels/new">Add Gan Izzy!</a>
+    </div>
+    <ul>
+        <% for(let ganisrael of ganisraels){ %>
+            <div class="card" mb-3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img class="img-fluid" alt="" src="<%=ganisrael.images[0].url%>">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="car-body">
+                            <h5 class="card-title"></h5>
+                            <%= ganisrael.title %>
+                                </h5>
+                                <p class="card-text">
+                                    <%= ganisrael.description %>
+                                </p>
+                                <p class="card-text">
+                                    <small class='text-muted'><%= ganisrael.location %></small> </p>
+                                <a class="btn btn-primary" href="/ganisraels/<%=ganisrael._id%>">View <%=ganisrael.title%></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
