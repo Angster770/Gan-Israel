@@ -58,6 +58,7 @@
             </div>
         </div>
         <div class="col-6 pt-5">
+            <div id="map"></div>
             <% if(currentUser) { %>
                 <h2>Leave a Review</h2>
                 <p id="status" class="d-none my-0 text-danger">Please Select Rating</p>
@@ -131,6 +132,6 @@
     </div>
     <script>
         const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
-        const ganisrael = JSON.parse('<%- JSON.stringify(ganisrael)%>');
+        const ganisrael = <%- JSON.stringify(ganisrael)%>;
     </script>
     <script src="/javascripts/showPageMap.js"></script>

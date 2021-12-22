@@ -11,6 +11,9 @@ const ImageSchema = new Schema({
 ImageSchema.virtual('thumbnail').get(function() {
     return this.url.replace('/upload', '/upload/w_200')
 });
+
+const opts = { toJSON: { virtuals: true } };
+
 const GanisraelSchema = new Schema({
     title: String,
     images: [ImageSchema],
@@ -36,7 +39,14 @@ const GanisraelSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Review'
     }]
+}, opts);
+
+GanisraelSchema.virtual('properties.popUpMarkup').get(function() {
+    return `<strong><a href="/ganisraels/${this._id}">${this.title}</a></strong>
+    <p>${this.description.substring(0, 20)}...</p>`
 });
+
+
 GanisraelSchema.post('findOneAndDelete', async function(doc) {
     if (doc) {
         await review.deleteMany({
@@ -45,7 +55,7 @@ GanisraelSchema.post('findOneAndDelete', async function(doc) {
             }
         })
     }
-})
+});
 
 
 module.exports = mongoose.model('Ganisrael', GanisraelSchema);

@@ -1,5 +1,4 @@
-module.exports = [
-    {
+module.exports = [{
         city: "New York",
         growth_from_2000_to_2013: "4.8%",
         latitude: 40.7127837,
@@ -3483,7 +3482,7 @@ module.exports = [
         state: "Michigan",
     },
     {
-        city: "O'Fallon",
+        city: "Fallon",
         growth_from_2000_to_2013: "62.6%",
         latitude: 38.8106075,
         longitude: -90.69984769999999,
@@ -7200,7 +7199,7 @@ module.exports = [
         state: "New York",
     },
     {
-        city: "Coeur d'Alene",
+        city: "Coeur Alene",
         growth_from_2000_to_2013: "32.8%",
         latitude: 47.6776832,
         longitude: -116.7804664,

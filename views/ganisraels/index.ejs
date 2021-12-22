@@ -1,11 +1,12 @@
 <% layout ('/layouts/boilerplate') %>
-    <h1 class="pt-5">All Gan Israels!</h1>
+    <div id="cluster-map" class="row mt-5"></div>
+    <h1>All Gan Israels!</h1>
     <div>
         <a href="/ganisraels/new">Add Gan Izzy!</a>
     </div>
     <ul>
         <% for(let ganisrael of ganisraels){ %>
-            <div class="card" mb-3>
+            <div class="card mb-3">
                 <div class="row">
                     <div class="col-md-4">
                         <%    if(ganisrael.images.length) { %>
@@ -30,3 +31,11 @@
                 </div>
             </div>
             <% } %>
+
+                <script>
+                    const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+                    const ganisraels = {
+                        features: <%- JSON.stringify(ganisraels)%>
+                    };
+                </script>
+                <script src="/javascripts/clusterMap.js"></script>
